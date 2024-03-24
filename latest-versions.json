@@ -1,0 +1,16 @@
+{
+  "php-app": [
+    {
+      "image": "ghcr.io/xdock/php-app:8.2-2024.01",
+      "name": "php-app",
+      "series": "8.2",
+      "build": "8.2-2024.01",
+      "compose": {
+        "command": "run-services web",
+        "ports": [
+          "8000:80"
+        ]
+      }
+    }
+  ]
+}

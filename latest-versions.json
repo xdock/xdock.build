@@ -5,11 +5,8 @@
       "name": "php-app",
       "series": "8.2",
       "build": "8.2-2024.01",
-      "compose": {
-        "command": "run-services web",
-        "ports": [
-          "8000:80"
-        ]
+      "stubs": {
+        "docker-compose.yml": "stubs/php-app/docker-compose.yml.stub"
       }
     }
   ]

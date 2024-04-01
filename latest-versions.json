@@ -5,8 +5,31 @@
       "name": "php-app",
       "series": "8.2",
       "build": "8.2-2024.01",
-      "stubs": {
-        "docker-compose.yml": "stubs/php-app/docker-compose.yml.stub"
+      "docker-compose": {
+        "version": "3.7",
+        "formatting-VERSION_HEADER": "NEWLINE",
+        "services": {
+          "web": {
+            "image": "ghcr.io/xdock/php-app:8.2-2024.01",
+            "command": "run-services web",
+            "environment": {
+              "APP_NAME": "",
+              "APP_ENV": "local"
+            },
+            "ports": [
+              "8000:80"
+            ],
+            "volumes": [
+              ".:/app"
+            ]
+          }
+        }
+      },
+      "docker-compose-replacements": {
+        "services.web.environment.APP_NAME": [
+          {"source": "config", "key": "app.app_name"},
+          {"source": "project_directory_name"}
+        ]
       }
     }
   ]
